@@ -1,0 +1,119 @@
+---
+
+---
+
+<header class="relative flex items-center">
+    <a href="/"><img src="../img/logo.svg" alt="SpontaNeo" /></a>
+
+    <div class="flex flex-1"></div>
+
+    <button
+        type="button"
+        id="header-menu-btn"
+        class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-[#1a1a1a] hover:bg-black/5 md:hidden"
+        aria-expanded="false"
+        aria-controls="header-mobile-menu"
+    >
+        <span class="sr-only">Abrir o cerrar menú</span>
+        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path class="hb-line hb-top" d="M5 7h14" />
+            <path class="hb-line hb-mid" d="M5 12h14" />
+            <path class="hb-line hb-bot" d="M5 17h14" />
+        </svg>
+    </button>
+
+    <nav class="hidden gap-18 md:flex" aria-label="Principal">
+        <a class="header-link" href="/#services">Servicios</a>
+        <a class="header-link" href="/conocenos">Conócenos</a>
+        <a class="header-link" href="/contactanos">Contáctanos</a>
+    </nav>
+
+    <div class="hidden flex-1 md:block"></div>
+
+    <div
+        id="header-mobile-menu"
+        class="absolute top-full right-0 left-0 z-50 mt-2 hidden rounded-lg border border-black/10 bg-(--SpontaNeo-Ghost-White) py-2 shadow-lg md:hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menú de navegación"
+    >
+        <nav class="flex flex-col" aria-label="Principal móvil">
+            <a class="header-link-mobile" href="/#services">Servicios</a>
+            <a class="header-link-mobile" href="/conocenos">Conócenos</a>
+            <a class="header-link-mobile" href="/contactanos">Contáctanos</a>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .header-link {
+        display: flex;
+        padding: 8px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+    }
+    .header-link:hover {
+        background: var(--SpontaNeo-Yellow-Primary);
+    }
+
+    .header-link-mobile {
+        display: flex;
+        padding: 12px 16px;
+        align-items: center;
+        border-radius: 8px;
+        margin: 0 8px;
+    }
+    .header-link-mobile:hover {
+        background: var(--SpontaNeo-Yellow-Primary);
+    }
+
+    .header-menu-open .hb-top {
+        transform: translateY(5px) rotate(45deg);
+    }
+    .header-menu-open .hb-mid {
+        opacity: 0;
+    }
+    .header-menu-open .hb-bot {
+        transform: translateY(-5px) rotate(-45deg);
+    }
+    .hb-line {
+        transform-origin: center;
+        transition:
+            transform 0.2s ease,
+            opacity 0.2s ease;
+    }
+</style>
+
+<script>
+    const btn = document.getElementById('header-menu-btn');
+    const menu = document.getElementById('header-mobile-menu');
+
+    function setOpen(open: boolean) {
+        if (!menu || !btn) return;
+        menu.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', String(open));
+        btn.classList.toggle('header-menu-open', open);
+    }
+
+    btn?.addEventListener('click', () => {
+        const open = Boolean(menu?.classList.contains('hidden'));
+        setOpen(open);
+    });
+
+    menu?.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menu || menu.classList.contains('hidden')) return;
+        if (e.target instanceof Node && !btn?.contains(e.target) && !menu.contains(e.target)) {
+            setOpen(false);
+        }
+    });
+
+    window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+        if (e.matches) setOpen(false);
+    });
+</script>

@@ -1,17 +1,134 @@
 ---
-
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="SpontaNeo">
+	<Header />
+	<main class="mt-10">
+		<section class="flex items-center justify-between flex-col sm:flex-row">
+			<div class="sm:max-w-1/2 flex flex-col gap-8">
+				<h1 class="titulo text-6xl font-bold ">Transforma <br class="hidden md:block"> tu visión en realidad</h1>
+				<p class="">
+					Soluciones personalizadas y eficientes para impulsar el crecimiento de tu negocio. <br> Nuestro equipo de expertos está listo para llevar tu marca al siguiente nivel.
+				</p>
+				<a href="/contactanos" type="button" class="yl-button relative px-10 w-1/2 lg:w-1/3 !hidden sm:!flex">
+					Contáctanos
+					<img src="../img/arrow-1-desktop.svg" alt="SpontaNeo arrow" class="absolute left-45 bottom-[-18px] !hidden sm:!flex lg:left-65 lg:bottom-[-55px]" />
+				</a>
+			</div>
+			<div class=" flex flex-col items-center gap-10 sm:gap-0 sm:max-w-1/2">
+				<img src="../img/img-1.svg" alt="SpontaNeo" class="max-h-[270px] md:max-h-[475px] object-cover"/>
+
+				<a href="/contactanos" type="button" class="yl-button relative w-50 mt-10 px-10 !flex sm:!hidden">
+					Contáctanos
+					<img src="../img/arrow-1-mobile.svg" alt="SpontaNeo arrow" class="absolute right-35 bottom-10 !flex sm:!hidden" />
+				</a>
+
+				<img src="../img/more-about-1-mobile.svg" alt="SpontaNeo" class="max-w-[180px] h-full object-cover sm:mt-10"/>
+
+			</div>
+		</section>
+
+		<section class="yellowSectionHome bg-(--SpontaNeo-Yellow-Secondary) py-20 px-8 sm:px-16 md:px-20 lg:px-32 xl:px-50 flex items-center justify-between flex-col gap-12 sm:flex-row">
+
+			<div class="relative sm:max-w-1/2 flex flex-col gap-14">
+				<img class="absolute left-[85%] !flex sm:!hidden" src="../img/icon-asset-home1-mobile.svg" alt="">
+
+				<h2 class="titulo text-6xl font-bold flex items-end">Soluciones adaptadas <br class="hidden md:block"> a tus necesidades. 
+					<img class="relative h-fit bottom-[-20px] left-[-65px] sm:bottom-[-40px] sm:left-[-20px] xl:left-[-65px] !hidden sm:!flex" src="../img/icon-asset-home1-desktop.svg" alt="">
+					</h2>
+				<p class="">
+					<img class="relative h-fit top-[14px] left-[-40px] !hidden sm:!flex" src="../img/icon-asset-home2-desktop.svg" alt="">
+					Descubre nuestras soluciones ideadas para impulsar tu negocio, con estrategias de marketing digital y desarrollo web. Te ayudamos a lograr tus objetivos y llevar tus ideas al siguiente nivel.
+					<img class="relative h-fit top-[-20px] left-[85%] !flex sm:!hidden" src="../img/icon-asset-home2-mobile.svg" alt="">
+				</p>
+			</div>
+
+			<div class="sm:max-w-1/2 flex flex-col gap-12">
+				<ul class="flex flex-col gap-8">
+					<li class="flex gap-4"><img src="../img/services-icon-list.svg" alt="Services Icon List">Soluciones Creativas</li>
+					<li class="flex gap-4"><img src="../img/services-icon-list.svg" alt="Services Icon List">Diseño de Sitios Web</li>
+					<li class="flex gap-4"><img src="../img/services-icon-list.svg" alt="Services Icon List">Estrategia de Comunicación Digital</li>
+					<li class="flex gap-4"><img src="../img/services-icon-list.svg" alt="Services Icon List">One Page Websites</li>
+					<li class="flex gap-4"><img src="../img/services-icon-list.svg" alt="Services Icon List">Auditoría de Redes Sociales</li>
+					<li class="flex gap-4"><img src="../img/services-icon-list.svg" alt="Services Icon List">Refresh de Marca</li>
+				</ul>
+				<a href="/contactanos" type="button" class="blue-button">
+					Agenda tu consulta gratis
+				</a>
+			</div>
+
+		</section>
+
+		<section id="services" class="flex flex-col gap-8 py-20">
+			<div class="flex flex-col gap-8 items-center justify-center">
+				<h2 class="titulo text-6xl font-bold text-center">Nuestros Servicios</h2>
+				<p class="text-center">Potenciando tu éxito: Estrategias de marketing y desarrollo a la medida</p>
+			</div>
+			<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+				<div class="flex gap-4">
+					<img class="h-25" src="../img/services/MarketingDigital.svg" alt="">
+					<div class="flex flex-col gap-4">
+						<h3 class="text-2xl font-bold">Marketing Digital</h3>
+						<p>Te ayudamos a crear estrategias de marketing de contenido creativas para tus plataformas digitales e impulsar tu presencia digital.</p>
+					</div>
+				</div>
+				<div class="flex gap-4 flex-row-reverse sm:flex-row">
+					<img class="h-25" src="../img/services/DisenoBranding.svg" alt="">
+					<div class="flex flex-col gap-4">
+						<h3 class="text-2xl font-bold">Diseño y Branding</h3>
+						<p>Creamos piezas gráficas que comuniquen la identidad de tu marca y te ayuden a diferenciar de tus competidores.</p>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<img class="h-25" src="../img/services/DesarrolloWeb.svg" alt="">
+					<div class="flex flex-col gap-4">
+						<h3 class="text-2xl font-bold">Desarrollo Web</h3>
+						<p>Nuestro equipo altamente capacitado y creativo trabaja de la mano contigo para y desarrollar sitios web que generen resultados tangibles.</p>
+					</div>
+				</div>
+				<div class="flex gap-4 flex-row-reverse sm:flex-row">
+					<img class="h-25" src="../img/services/WebDesign.svg" alt="">
+					<div class="flex flex-col gap-4">
+						<h3 class="text-2xl font-bold">Diseño Web</h3>
+						<p>Damos vida a tu visión digital con soluciones de diseño web. Trabajamos de la mano contigo para diseñar y sitios web que cautiven a tus clientes.</p>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<img class="h-25" src="../img/services/FacebookAds.svg" alt="">
+					<div class="flex flex-col gap-4">
+						<h3 class="text-2xl font-bold">Facebook Ads</h3>
+						<p>Impulsamos la visibilidad de tu marca en redes sociales, con anuncios optimizados en Facebook e Instagram que te permitan lograr tus objetivos.</p>
+					</div>
+				</div>
+				<div class="flex gap-4 flex-row-reverse sm:flex-row">
+					<img class="h-25" src="../img/services/Consultoria.svg" alt="">
+					<div class="flex flex-col gap-4">
+						<h3 class="text-2xl font-bold">Consultorías</h3>
+						<p>Potencia tu negocio con nuestras asesorías personalizadas de marketing y desarrollo, enfocadas en tus desafíos comerciales.</p>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		<section class="blueSectionHome bg-(--SpontaNeo-Blue-Primary) py-20 px-8 sm:px-16 md:px-20 lg:px-32 xl:px-50 flex items-center justify-between flex-col gap-12 sm:flex-row">
+			<h3 class="titulo relative text-3xl font-bold text-(--SpontaNeo-Ghost-White) text-center sm:text-left">Cotiza tu proyecto con nosotros
+
+				<!-- <img src="../img/desktop-graphic-asset-1.svg" alt="Desktop Graphic Asset 1" class="absolute right-[-190%]  top-[-px] !hidden xl:!flex"> -->
+
+			</h3>
+
+			<div class="flex flex-col gap-4">
+				<a href="/contactanos" type="button" class="yl-button">
+					Contáctanos
+				</a>
+				<img src="../img/mobile-graphic-asset-1.svg" alt="Mobile Graphic Asset 1" class="!flex sm:!hidden">
+			</div>
+		</section>
+
+	</main>
+	<Footer />
+</MainLayout>

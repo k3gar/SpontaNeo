@@ -1,0 +1,86 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/header.astro';
+import Footer from '../../components/footer.astro';
+
+/** Obtén la clave en https://web3forms.com — usa PUBLIC_WEB3FORMS_ACCESS_KEY en .env */
+const web3AccessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY as string | undefined;
+const siteBase =
+  import.meta.env.PUBLIC_SITE_URL ||
+  (Astro.site?.href ?? 'http://localhost:4321').replace(/\/?$/, '/');
+const thankYouUrl = new URL('contactanos/gracias', siteBase).href;
+---
+
+<MainLayout title="SpontaNeo | Contactanos">
+    <Header />
+    <main>
+        <section class="flex flex-col gap-12 sm:flex-row py-20 justify-between">
+            <div class="flex flex-col gap-4 sm:max-w-1/2">
+                <h1 class="text-[#838383] font-bold pt-10">Contáctanos</h1>
+                <h2 class="titulo text-4xl font-bold">Estamos aquí para resolver tus dudas y potenciar tus proyectos.</h2>
+                <p>Nos encantaría escuchar tus ideas y proyectos. Por favor, completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+                
+                <div class="">
+                    {!web3AccessKey && (
+                      <p class="mb-4 rounded-md bg-amber-50 px-4 py-3 text-sm text-amber-900">
+                        Falta configurar <code class="rounded bg-amber-100 px-1">PUBLIC_WEB3FORMS_ACCESS_KEY</code> en
+                        <code class="rounded bg-amber-100 px-1">.env</code>. Regístrate en{' '}
+                        <a href="https://web3forms.com" class="font-semibold underline">web3forms.com</a> y pega tu clave.
+                      </p>
+                    )}
+                    <form action="https://api.web3forms.com/submit" method="POST" class="">
+                      <input type="hidden" name="access_key" value={web3AccessKey ?? ''} />
+                      <input type="hidden" name="subject" value="Nuevo mensaje desde SpontaNeo (contacto)" />
+                      <input type="hidden" name="redirect" value={thankYouUrl} />
+                      <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+                      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                        <div>
+                          <label for="first-name" class="block font-semibold text-gray-900">Nombre</label>
+                          <div class="mt-2.5">
+                            <input id="first-name" type="text" name="first-name" required autocomplete="given-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+                          </div>
+                        </div>
+                        <div>
+                          <label for="last-name" class="block font-semibold text-gray-900">Apellido</label>
+                          <div class="mt-2.5">
+                            <input id="last-name" type="text" name="last-name" required autocomplete="family-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+                          </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                          <label for="company" class="block font-semibold text-gray-900">Empresa</label>
+                          <div class="mt-2.5">
+                            <input id="company" type="text" name="company" autocomplete="organization" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+                          </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                          <label for="email" class="block font-semibold text-gray-900">Correo electrónico</label>
+                          <div class="mt-2.5">
+                            <input id="email" type="email" name="email" required autocomplete="email" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+                          </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                          <label for="phone-number" class="block font-semibold text-gray-900">Teléfono de contacto</label>
+                          <div class="mt-2.5">
+                            <div class="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+                              <input id="phone-number" type="tel" name="phone-number" placeholder="1234-5678" autocomplete="tel" class="block min-w-0 grow py-1.5 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                          <label for="message" class="block  font-semibold text-gray-900">Mensaje</label>
+                          <div class="mt-2.5">
+                            <textarea id="message" name="message" rows="4" required class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-10">
+                        <button type="submit" class="blue-button w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={!web3AccessKey}>Enviar</button>
+                      </div>
+                    </form>
+                  </div>
+            </div>
+            <img src="../img/contact-img-1.svg" alt="SpontaNeo" class="max-h-[350px] md:max-h-[700px] md:w-110"/>
+        </section>
+    </main>
+    <Footer />
+</MainLayout>

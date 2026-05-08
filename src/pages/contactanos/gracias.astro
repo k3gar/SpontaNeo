@@ -1,0 +1,24 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/header.astro';
+import Footer from '../../components/footer.astro';
+---
+
+<MainLayout title="SpontaNeo | Mensaje enviado">
+  <Header />
+  <main class="py-20">
+    <div class="mx-auto max-w-lg text-center">
+      <h1 class="titulo text-4xl font-bold">Gracias por escribirnos</h1>
+      <p class="mt-4 text-gray-700 text-[20px]">
+        Hemos recibido tu mensaje. Te responderemos lo antes posible.
+      </p>
+      <a
+        href="/"
+        class="mt-8 inline-block rounded-md bg-indigo-600 px-5 py-2.5 font-semibold text-white shadow-xs hover:bg-indigo-500"
+      >
+        Volver al inicio
+      </a>
+    </div>
+  </main>
+  <Footer />
+</MainLayout>

@@ -1,0 +1,107 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/header.astro';
+import Footer from '../../components/footer.astro';
+---
+
+<MainLayout title="SpontaNeo | Conócenos">
+    <Header />
+    <main>
+        <section class="flex flex-col gap-12 sm:flex-row py-20 items-center justify-between">
+            <div class="flex flex-col gap-8 sm:max-w-1/2">
+                <h2 class="text-[#838383] font-bold">Sobre nosotros</h2>
+                <h1 class="titulo text-4xl font-bold">Transformamos Tus Metas Digitales en Logros Reales</h1>
+                <p>Somos un equipo de profesionales apasionados por la tecnología y el marketing digital. Nos especializamos en crear soluciones personalizadas para nuestros clientes, ayudándolos a alcanzar sus objetivos de negocio.</p>
+                <a href="/contactanos" type="button" class="yl-button relative px-10 w-1/2 lg:w-1/3 m-auto sm:m-0">
+					Contáctanos
+				</a>
+            </div>
+            <img src="../img/about-img-1.svg" alt="SpontaNeo" class="max-h-[350px] md:max-h-[600px] md:w-110"/>
+        </section>
+
+        <section class="blueSectionHome relative overflow-hidden bg-(--SpontaNeo-Blue-Primary) pt-20 pb-20 px-8 sm:px-16 md:px-20 md:pb-40 lg:px-32 xl:px-50 flex items-center justify-between flex-col gap-26">
+            <h2 class="titulo relative z-10 text-3xl font-bold text-center text-(--SpontaNeo-Ghost-White)">Inspirados hacia un futuro de éxito
+                <img src="../img/about-graphic-asset-1.svg" alt="SpontaNeo" class="absolute w-[60%] sm:w-auto mt-4">
+            </h2>
+            <div class="relative z-10 flex flex-col gap-8 sm:flex-row justify-center">
+                <div class="flex flex-col gap-4 sm:max-w-1/2 lg:max-w-1/3">
+                    <h3 class="text-3xl font-bold text-(--SpontaNeo-Ghost-White) text-center">Misión</h3>
+                    <p class="text-(--SpontaNeo-Ghost-White) text-center">Impulsar el crecimiento digital de nuestros clientes en redes sociales, usando estrategias que los lleven a construir una comunidad con sus consumidores. Estamos brindando soluciones personalizadas pensadas por personal que trabaja en equipo para entregarte una estrategia ganadora.</p>
+                </div>
+                <div class="flex flex-col gap-4 sm:max-w-1/2 lg:max-w-1/3">
+                    <h3 class="text-3xl font-bold text-(--SpontaNeo-Ghost-White) text-center">Visión</h3>
+                    <p class="text-(--SpontaNeo-Ghost-White) text-center">Encaminar a nuestros clientes a la formación de comunidades en redes sociales, nos esforzamos por ser una agencia que inspire confianza y genere impacto a través de estrategias vanguardistas y resultados tangibles. Capaz de recibir estudiantes y recién graduados para apoyarlos con su primera experiencia laboral.</p>
+                </div>
+            </div>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 z-5 h-14 w-full sm:h-[4.5rem] md:h-24" aria-hidden="true">
+                <svg
+                    class="block h-full w-full text-(--SpontaNeo-Ghost-White)"
+                    viewBox="0 0 1440 100"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill="currentColor"
+                        d="M0 52 C200 0 340 99 520 48 C700 0 860 99 1040 48 C1160 4 1280 96 1440 28 L1440 100 L0 100 Z"
+                    />
+                </svg>
+            </div>
+        </section>
+
+        <section class="flex flex-col gap-12 pb-20 pt-10">
+            <h2 class="titulo text-4xl font-bold">Nuestros valores</h2>
+            <p>Nuestro objetivo es hacer crecer tu negocio de manera impactante, creando oportunidades en todo momento.</p>
+
+            <div class="flex flex-col gap-8 lg:flex-row">
+                <div class="flex gap-4">
+                    <img src="../img/about-graphic-asset-valores-1.svg" alt="SpontaNeo" class="w-18 h-18">
+                    <div class="flex flex-col gap-4">
+                        <h3 class="text-2xl font-bold">Compromiso</h3>
+                        <p>Nos comprometemos a ofrecer soluciones de calidad que superen expectativas, construyendo relaciones duraderas y exitosas.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <img src="../img/about-graphic-asset-valores-2.svg" alt="SpontaNeo" class="w-18 h-18">
+                    <div class="flex flex-col gap-4">
+                        <h3 class="text-2xl font-bold">Confianza</h3>
+                        <p>Construimos confianza con transparencia, ética y respeto mutuo. Valoramos la confianza de nuestros clientes y trabajamos para mantenerla en cada interacción.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <img src="../img/about-graphic-asset-valores-3.svg" alt="SpontaNeo" class="w-18 h-18">
+                    <div class="flex flex-col gap-4">
+                        <h3 class="text-2xl font-bold">Creatividad</h3>
+                        <p>Abrazamos la creatividad en nuestro trabajo, buscando soluciones innovadoras que ofrezcan experiencias únicas para nuestros clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="yellowSectionHome relative overflow-hidden bg-(--SpontaNeo-Yellow-Primary) pt-24 pb-15 px-8 sm:px-16 md:px-20 lg:px-32 xl:px-50 flex items-center justify-between flex-col gap-12 sm:flex-row">
+            <div class="pointer-events-none absolute inset-x-0 top-0 z-5 h-14 w-full sm:h-[4.5rem] md:h-24" aria-hidden="true">
+                <svg
+                    class="block h-full w-full text-(--SpontaNeo-Ghost-White)"
+                    viewBox="0 0 1440 100"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <g transform="matrix(1,0,0,-1,0,100)">
+                        <path
+                            fill="currentColor"
+                            d="M0 52 C200 0 340 99 520 48 C700 0 860 99 1040 48 C1160 4 1280 96 1440 28 L1440 100 L0 100 Z"
+                        />
+                    </g>
+                </svg>
+            </div>
+
+			<h3 class="titulo relative z-10 text-3xl font-bold text-center sm:text-left">Cotiza tu proyecto con nosotros</h3>
+
+			<div class="relative z-10 flex flex-col gap-4">
+				<a href="/contactanos" type="button" class="blue-button">
+					Contáctanos
+				</a>
+			</div>
+		</section>
+    </main>
+    <Footer />
+</MainLayout>

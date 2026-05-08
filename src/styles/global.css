@@ -1,0 +1,71 @@
+/* Escanear desde `src/` (padre de `styles/`); imprescindible con Astro + `@tailwindcss/vite`, si no utilities quedan como `@tailwind utilities` sin expandir */
+@import "tailwindcss";
+
+:root {
+    --SpontaNeo-Yellow-Primary: #F9CB13;
+    --SpontaNeo-Yellow-Secondary: #FED132;
+    --SpontaNeo-Blue-Primary: #2962FF;
+    --SpontaNeo-Ghost-White: #F8F8FF;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    overflow-x: hidden;
+    background-color: var(--SpontaNeo-Ghost-White);
+}
+
+.titulo {
+    font-family: 'Almarai', sans-serif;
+}
+
+.yl-button{
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--SpontaNeo-Yellow-Secondary, #FED132);
+    cursor: pointer;
+}
+
+.blue-button{
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--SpontaNeo-Blue-Primary, #2962FF);
+    color: var(--SpontaNeo-Ghost-White, #F8F8FF);
+    cursor: pointer;
+}
+
+.yellowSectionHome {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+.blueSectionHome {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
