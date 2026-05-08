@@ -16,11 +16,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # AÑADE ESTE PASO AQUÍ ABAJO
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # Esto forzará el uso de Node 22
+          node-version: 22
+          cache: 'npm' # Esto acelera las futuras ejecuciones
 
-      - name: Install, build, and upload
-        uses: withastro/action@v3
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist # Asegúrate de que esta sea tu carpeta de salida de Astro
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
